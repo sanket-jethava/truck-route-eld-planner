@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR.parent / 'backend/.env')
+load_dotenv(BASE_DIR.parent / 'project/.env')
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key')
 DEBUG = os.getenv('DEBUG', 'True').lower() in ('1', 'true', 'yes')
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'corsheaders',
@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'backend.project.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.project.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 
